@@ -1,7 +1,12 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
+from pathlib import Path
 
+st.write("Current directory:", os.getcwd())
+st.write("Script location:", Path(__file__).resolve())
+st.write("Files here:", os.listdir(Path(__file__).parent))
 # ── 1. GLOBAL PAGE CONFIGURATION ───────────────────────────────────────────
 st.set_page_config(
     page_title="ATM Cash Intelligence Platform",
@@ -308,11 +313,21 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── 4. BACKEND MACHINE LEARNING DATA WORKFLOW ─────────────────────────────
-model = joblib.load("model1.pkl")
+from pathlib import Path
+
+BASE_DIR = Path(__file__).parent
+
+MODEL_PATH = BASE_DIR / "model.pkl"
+DATA_PATH = BASE_DIR / "atm_cash_management_dataset.csv"
+
+st.write("Model exists:", MODEL_PATH.exists())
+st.write("Model path:", MODEL_PATH)
+
+model = joblib.load(MODEL_PATH)
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("atm_cash_management_dataset.csv")
+    df = pd.read_csv(DATA_PATH)
     df["Date"] = pd.to_datetime(df["Date"])
     return df
 
