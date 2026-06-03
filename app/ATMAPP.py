@@ -4,9 +4,9 @@ import joblib
 import os
 from pathlib import Path
 
-st.write("Current directory:", os.getcwd())
-st.write("Script location:", Path(__file__).resolve())
-st.write("Files here:", os.listdir(Path(__file__).parent))
+# st.write("Current directory:", os.getcwd())
+# st.write("Script location:", Path(__file__).resolve())
+# st.write("Files here:", os.listdir(Path(__file__).parent))
 # ── 1. GLOBAL PAGE CONFIGURATION ───────────────────────────────────────────
 st.set_page_config(
     page_title="ATM Cash Intelligence Platform",
