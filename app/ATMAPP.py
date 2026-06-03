@@ -308,7 +308,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── 4. BACKEND MACHINE LEARNING DATA WORKFLOW ─────────────────────────────
-model = joblib.load("model.pkl")
+model = joblib.load("model1.pkl")
 
 @st.cache_data
 def load_data():
