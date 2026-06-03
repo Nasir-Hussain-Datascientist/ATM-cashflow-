@@ -320,8 +320,8 @@ BASE_DIR = Path(__file__).parent
 MODEL_PATH = BASE_DIR / "model.pkl"
 DATA_PATH = BASE_DIR / "atm_cash_management_dataset.csv"
 
-st.write("Model exists:", MODEL_PATH.exists())
-st.write("Model path:", MODEL_PATH)
+# st.write("Model exists:", MODEL_PATH.exists())
+# st.write("Model path:", MODEL_PATH)
 
 model = joblib.load(MODEL_PATH)
 
